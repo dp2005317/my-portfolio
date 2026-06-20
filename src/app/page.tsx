@@ -676,7 +676,7 @@ const Contact = () => {
         </PlayfulButton>
         
         <div className="flex flex-wrap justify-center gap-6">
-          <a href="https://linkedin.com/in/digantapal" target="_blank" rel="noreferrer" className="bg-[var(--light)] p-4 neo-btn hover:bg-[var(--primary)] hover:text-white transition-colors group">
+          <a href="https://www.linkedin.com/in/diganta-pal" target="_blank" rel="noreferrer" className="bg-[var(--light)] p-4 neo-btn hover:bg-[var(--primary)] hover:text-white transition-colors group">
             <Linkedin size={32} className="group-hover:scale-110 transition-transform" />
           </a>
           <a href="https://github.com/dp2005317" target="_blank" rel="noreferrer" className="bg-[var(--light)] p-4 neo-btn hover:bg-[var(--dark)] hover:text-white transition-colors group">
