@@ -22,15 +22,9 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Diganta Pal – The Art of Code & Creativity",
   description: "Full-stack developer & creative technologist crafting premium digital experiences.",
-  icons: {
-    icon: "/profile.jpg",
-    shortcut: "/profile.jpg",
-    apple: "/profile.jpg",
-  },
   openGraph: {
     title: "Diganta Pal – The Art of Code & Creativity",
     description: "Full-stack developer & creative technologist crafting premium digital experiences.",
-    images: [{ url: "/profile.jpg" }],
   },
 };
 

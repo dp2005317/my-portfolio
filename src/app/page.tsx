@@ -182,7 +182,7 @@ const Hero = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-display font-black text-[3.5rem] sm:text-[5.5rem] lg:text-[7rem] leading-[0.9] text-[var(--dark)] mb-6 uppercase"
+            className="font-display font-black text-[3.5rem] sm:text-[5.5rem] lg:text-[4.5rem] xl:text-[5.5rem] leading-[0.9] text-[var(--dark)] mb-6 uppercase"
           >
             NOT YOUR <br />
             TYPICAL <br />
@@ -243,26 +243,26 @@ const Hero = () => {
             </div>
 
             {/* Floating Stickers using Framer Motion */}
-            <motion.div animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }}>
-              <Sticker rotate="rotate-6" className="top-10 -right-4 md:-right-8" color="bg-[var(--accent)]">
+            <motion.div className="absolute top-10 -right-4 md:-right-8 z-20" animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }}>
+              <Sticker rotate="rotate-6" color="bg-[var(--accent)]">
                 <Star size={16} className="fill-[var(--dark)]" /> FOUNDER OF HONEST.
               </Sticker>
             </motion.div>
             
-            <motion.div animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity, delay: 1 }}>
-              <Sticker rotate="-rotate-12" className="top-1/3 -left-4 md:-left-12" color="bg-[var(--pink)]">
+            <motion.div className="absolute top-1/3 -left-4 md:-left-12 z-20" animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity, delay: 1 }}>
+              <Sticker rotate="-rotate-12" color="bg-[var(--pink)]">
                 AI BUILDER 🤖
               </Sticker>
             </motion.div>
             
-            <motion.div animate={{ y: [-8, 8, -8] }} transition={{ duration: 3.5, repeat: Infinity, delay: 0.5 }}>
-              <Sticker rotate="rotate-3" className="bottom-24 -right-4 md:-right-12" color="bg-[var(--green)] text-white">
+            <motion.div className="absolute bottom-24 -right-4 md:-right-12 z-20" animate={{ y: [-8, 8, -8] }} transition={{ duration: 3.5, repeat: Infinity, delay: 0.5 }}>
+              <Sticker rotate="rotate-3" color="bg-[var(--green)] text-white">
                 <Rocket size={16} className="fill-white" /> BUILD. LEARN. SHIP.
               </Sticker>
             </motion.div>
             
-            <motion.div animate={{ y: [5, -5, 5] }} transition={{ duration: 4.5, repeat: Infinity, delay: 2 }}>
-              <Sticker rotate="-rotate-6" className="bottom-8 left-4" color="bg-[var(--light)]">
+            <motion.div className="absolute bottom-8 left-4 z-20" animate={{ y: [5, -5, 5] }} transition={{ duration: 4.5, repeat: Infinity, delay: 2 }}>
+              <Sticker rotate="-rotate-6" color="bg-[var(--light)]">
                 <span className="font-handwriting text-xl text-[var(--primary)]">2024 - 2028</span>
               </Sticker>
             </motion.div>
