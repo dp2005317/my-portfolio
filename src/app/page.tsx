@@ -286,64 +286,6 @@ const CustomCursor = () => {
   );
 };
 
-// 2. Cinematic Loader
-const Loader = ({ onComplete }) => {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        const next = prev + Math.floor(Math.random() * 12) + 2;
-        if (next >= 100) {
-          clearInterval(interval);
-          setTimeout(onComplete, 800);
-          return 100;
-        }
-        return next;
-      });
-    }, 100);
-    return () => clearInterval(interval);
-  }, [onComplete]);
-
-  return (
-    <motion.div
-      exit={{ y: '-100%', opacity: 0, filter: 'blur(20px)' }}
-      transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[var(--bg)] overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-black/5 via-transparent to-transparent dark:from-zinc-900/20 dark:via-[#030303] dark:to-[#030303]" />
-      
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
-        className="relative z-10 text-center"
-      >
-        <h1 className="text-[15vw] md:text-[8vw] font-bold display-font text-[var(--text-primary)] opacity-10">
-          DIGANTA
-        </h1>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center text-[var(--accent)]">
-           <h1 className="text-[15vw] md:text-[8vw] font-bold display-font overflow-hidden whitespace-nowrap" style={{ width: `${progress}%`, transition: 'width 0.2s ease-out' }}>
-              DIGANTA
-           </h1>
-        </div>
-      </motion.div>
-
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
-        <div className="text-sm font-medium tracking-[0.4em] text-[var(--text-secondary)] text-center">INITIALIZING</div>
-        <div className="w-48 h-[1px] bg-[var(--border-color)] relative overflow-hidden">
-          <motion.div 
-            className="absolute top-0 left-0 h-full bg-[var(--accent)]"
-            initial={{ width: '0%' }}
-            animate={{ width: `${progress}%` }}
-            transition={{ ease: "linear" }}
-          />
-        </div>
-        <div className="text-xs font-mono text-[var(--accent)]">{progress.toString().padStart(3, '0')}%</div>
-      </div>
-    </motion.div>
-  );
-};
 
 // 3. Liquid Glass SVG Filter
 const GlassFilter = () => (
@@ -1309,7 +1251,6 @@ const Footer = () => (
 
 // --- MAIN APP COMPONENT ---
 export default function App() {
-  const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState('light'); // LIGHT THEME DEFAULT
 
   // Sync theme with global HTML/Body for Tailwind dark: variants and CSS variables
@@ -1334,10 +1275,6 @@ export default function App() {
       <GlassFilter />
       <CustomCursor />
       
-      <AnimatePresence mode="wait">
-        {loading ? (
-          <Loader key="loader" onComplete={() => setLoading(false)} />
-        ) : (
           <motion.div
             key="main"
             initial={{ opacity: 0 }}
@@ -1358,8 +1295,6 @@ export default function App() {
             </main>
             <Footer />
           </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }
