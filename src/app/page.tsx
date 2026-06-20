@@ -126,7 +126,7 @@ const PlayfulButton = ({ children, variant = 'primary', className = '', ...props
 };
 
 const Sticker = ({ children, className = "", color = "bg-[var(--accent)]", rotate = "-rotate-6" }) => (
-  <div className={`absolute ${rotate} ${color} text-[var(--dark)] font-bold px-4 py-2 neo-border rounded-xl shadow-[4px_4px_0px_rgba(15,23,42,1)] whitespace-nowrap z-20 hover:scale-110 transition-transform cursor-pointer flex items-center gap-2 ${className}`}>
+  <div className={`absolute ${rotate} ${color} text-[var(--dark)] font-bold text-xs sm:text-base px-2 sm:px-4 py-1.5 sm:py-2 neo-border rounded-lg sm:rounded-xl shadow-[2px_2px_0px_rgba(15,23,42,1)] sm:shadow-[4px_4px_0px_rgba(15,23,42,1)] whitespace-nowrap z-20 hover:scale-110 transition-transform cursor-pointer flex items-center gap-1.5 sm:gap-2 ${className}`}>
     {children}
   </div>
 );
@@ -273,27 +273,27 @@ const Hero = () => {
             </div>
 
             {/* Floating Stickers using Framer Motion */}
-            <motion.div className="absolute top-10 right-2 lg:-right-4 z-20" animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }}>
+            <motion.div className="absolute top-4 sm:top-10 right-2 lg:-right-4 z-20" animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }}>
               <Sticker rotate="rotate-6" color="bg-[var(--accent)]">
-                <Star size={16} className="fill-[var(--dark)]" /> FOUNDER OF HONEST.
+                <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-[var(--dark)]" /> FOUNDER OF HONEST.
               </Sticker>
             </motion.div>
             
-            <motion.div className="absolute top-1/3 left-2 lg:-left-8 z-20" animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity, delay: 1 }}>
+            <motion.div className="absolute top-1/3 -left-2 sm:left-2 lg:-left-8 z-20" animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity, delay: 1 }}>
               <Sticker rotate="-rotate-12" color="bg-[var(--pink)]">
                 AI BUILDER 🤖
               </Sticker>
             </motion.div>
             
-            <motion.div className="absolute bottom-24 right-2 lg:-right-6 z-20" animate={{ y: [-8, 8, -8] }} transition={{ duration: 3.5, repeat: Infinity, delay: 0.5 }}>
+            <motion.div className="absolute bottom-16 sm:bottom-24 -right-2 sm:right-2 lg:-right-6 z-20" animate={{ y: [-8, 8, -8] }} transition={{ duration: 3.5, repeat: Infinity, delay: 0.5 }}>
               <Sticker rotate="rotate-3" color="bg-[var(--green)] text-white">
-                <Rocket size={16} className="fill-white" /> BUILD. LEARN. SHIP.
+                <Rocket className="w-3 h-3 sm:w-4 sm:h-4 fill-white" /> BUILD. LEARN. SHIP.
               </Sticker>
             </motion.div>
             
-            <motion.div className="absolute bottom-8 left-6 lg:-left-2 z-20" animate={{ y: [5, -5, 5] }} transition={{ duration: 4.5, repeat: Infinity, delay: 2 }}>
+            <motion.div className="absolute bottom-4 sm:bottom-8 left-4 sm:left-6 lg:-left-2 z-20" animate={{ y: [5, -5, 5] }} transition={{ duration: 4.5, repeat: Infinity, delay: 2 }}>
               <Sticker rotate="-rotate-6" color="bg-[var(--light)]">
-                <span className="font-handwriting text-xl text-[var(--primary)]">2024 - 2028</span>
+                <span className="font-handwriting text-sm sm:text-xl text-[var(--primary)]">2024 - 2028</span>
               </Sticker>
             </motion.div>
 
