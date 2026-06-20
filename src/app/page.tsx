@@ -148,7 +148,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 pointer-events-none">
       <div className="max-w-7xl mx-auto flex justify-between items-center relative">
         <div className="pointer-events-auto bg-[var(--accent)] neo-border rounded-xl px-5 py-2 shadow-[4px_4px_0px_#0f172a] rotate-1 hover:rotate-0 transition-transform cursor-pointer">
-          <span className="font-display font-black text-2xl tracking-tight text-[var(--dark)]">DIGANTA.</span>
+          <span className="font-display font-black text-2xl tracking-tight text-[var(--dark)]">DIGANTA PAL</span>
         </div>
         
         {/* Desktop Links */}
@@ -214,8 +214,8 @@ const Hero = () => {
             transition={{ delay: 0.1 }}
             className="font-display font-black text-[3.5rem] sm:text-[5.5rem] lg:text-[4.5rem] xl:text-[5.5rem] leading-[0.9] text-[var(--dark)] mb-6 uppercase"
           >
-            NOT YOUR <br />
-            TYPICAL <br />
+            BEING HONEST. <br />
+            I AM AN <br />
             <span className="relative inline-block mt-2">
               <span className="absolute inset-0 bg-[var(--accent)] neo-border rounded-2xl shadow-[6px_6px_0px_#0f172a] -rotate-1"></span>
               <span className="relative px-4 text-[var(--dark)]">ENGINEERING</span>
