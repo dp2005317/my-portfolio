@@ -23,14 +23,14 @@ export const metadata: Metadata = {
   title: "Diganta Pal – The Art of Code & Creativity",
   description: "Full-stack developer & creative technologist crafting premium digital experiences.",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: "/profile.jpg",
+    shortcut: "/profile.jpg",
+    apple: "/profile.jpg",
   },
   openGraph: {
     title: "Diganta Pal – The Art of Code & Creativity",
     description: "Full-stack developer & creative technologist crafting premium digital experiences.",
-    images: [{ url: "/og-image.png" }],
+    images: [{ url: "/profile.jpg" }],
   },
 };
 
