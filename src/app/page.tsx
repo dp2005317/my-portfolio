@@ -212,7 +212,7 @@ const Hero = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-display font-black text-[3.5rem] sm:text-[5.5rem] lg:text-[4.5rem] xl:text-[5.5rem] leading-[0.9] text-[var(--dark)] mb-6 uppercase"
+            className="font-display font-black text-[2.5rem] sm:text-[4.5rem] lg:text-[4.5rem] xl:text-[5.5rem] leading-[0.9] text-[var(--dark)] mb-6 uppercase"
           >
             BEING HONEST. <br />
             I AM AN <br />
@@ -255,7 +255,7 @@ const Hero = () => {
         </div>
 
         {/* RIGHT COLUMN: Image & Stickers */}
-        <div className="lg:col-span-5 relative h-[450px] lg:h-[650px] w-full mt-12 lg:mt-0">
+        <div className="lg:col-span-5 relative h-[380px] sm:h-[450px] lg:h-[650px] w-full mt-12 lg:mt-0">
           <motion.div 
             initial={{ scale: 0.8, opacity: 0, rotate: -5 }}
             animate={{ scale: 1, opacity: 1, rotate: 0 }}
@@ -340,7 +340,7 @@ const About = () => {
             viewport={{ once: true, margin: "-100px" }}
             className="lg:col-span-6"
           >
-            <h2 className="font-display font-black text-[4rem] md:text-[6rem] leading-[0.9] text-[var(--dark)] mb-6 uppercase">
+            <h2 className="font-display font-black text-[3rem] md:text-[5rem] lg:text-[6rem] leading-[0.9] text-[var(--dark)] mb-6 uppercase">
               COLLEGE GIVES <br /> ME A DEGREE. <br />
               <span className="inline-block bg-[var(--primary)] text-[var(--light)] px-4 py-2 neo-border rounded-2xl shadow-[6px_6px_0px_#0f172a] mt-4 rotate-2">
                 I BUILD REAL
@@ -397,7 +397,7 @@ const Services = () => {
   return (
     <section className="py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <h2 className="font-display font-black text-5xl md:text-7xl mb-16 text-center uppercase">WHAT I <span className="text-[var(--primary)]">DO.</span></h2>
+        <h2 className="font-display font-black text-4xl sm:text-5xl md:text-7xl mb-12 sm:mb-16 text-center uppercase">WHAT I <span className="text-[var(--primary)]">DO.</span></h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
@@ -435,7 +435,7 @@ const HonestSection = () => {
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
         <div>
-          <h2 className="font-display font-black text-[4rem] md:text-[6rem] leading-[0.9] text-[var(--dark)] mb-8 uppercase">
+          <h2 className="font-display font-black text-[3rem] sm:text-[4rem] md:text-[6rem] leading-[0.9] text-[var(--dark)] mb-8 uppercase">
             BUILDING <br />
             <span className="text-[var(--light)]" style={{ textShadow: '4px 4px 0px #0F172A' }}>HONEST.</span>
           </h2>
@@ -499,7 +499,7 @@ const Projects = () => {
   return (
     <section id="work" className="py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <h2 className="font-display font-black text-[4rem] md:text-[6rem] mb-16 uppercase">THINGS I <span className="text-[var(--primary)]">BUILT.</span></h2>
+        <h2 className="font-display font-black text-[3rem] sm:text-[4rem] md:text-[6rem] mb-12 sm:mb-16 uppercase">THINGS I <span className="text-[var(--primary)]">BUILT.</span></h2>
         
         <div className="space-y-16">
           {projects.map((project, index) => (
@@ -558,7 +558,7 @@ const Skills = () => {
   return (
     <section className="py-24 bg-[var(--dark)] text-[var(--light)] neo-border border-l-0 border-r-0 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12 text-center relative z-10">
-        <h2 className="font-display font-black text-5xl md:text-7xl mb-16 uppercase">MY <span className="text-[var(--accent)]">TECH STACK.</span></h2>
+        <h2 className="font-display font-black text-4xl sm:text-5xl md:text-7xl mb-12 sm:mb-16 uppercase">MY <span className="text-[var(--accent)]">TECH STACK.</span></h2>
         
         <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
           {skills.map((skill, i) => (
@@ -592,7 +592,7 @@ const Journey = () => {
   return (
     <section id="journey" className="py-24 bg-white neo-border border-l-0 border-r-0 border-t-0">
       <div className="max-w-4xl mx-auto px-6 md:px-12">
-        <h2 className="font-display font-black text-5xl md:text-7xl mb-20 text-center uppercase">HOW I <span className="text-[var(--primary)]">GOT HERE.</span></h2>
+        <h2 className="font-display font-black text-4xl sm:text-5xl md:text-7xl mb-16 sm:mb-20 text-center uppercase">HOW I <span className="text-[var(--primary)]">GOT HERE.</span></h2>
         
         <div className="relative border-l-[6px] border-[var(--dark)] ml-6 md:ml-12 pl-8 md:pl-16 space-y-16">
           {timeline.map((item, index) => (
@@ -659,7 +659,7 @@ const Contact = () => {
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
-          className="font-display font-black text-[4rem] sm:text-[6rem] lg:text-[8rem] leading-[0.9] mb-12 uppercase"
+          className="font-display font-black text-[2.5rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] leading-[0.9] mb-12 uppercase"
         >
           LET'S BUILD <br />
           <span className="text-[var(--primary)] relative inline-block">
@@ -671,8 +671,8 @@ const Contact = () => {
           AWESOME.
         </motion.h2>
         
-        <PlayfulButton variant="primary" className="text-xl md:text-2xl px-12 py-6 mb-20 shadow-[8px_8px_0px_#0f172a] hover:shadow-[12px_12px_0px_#0f172a]">
-          <Mail size={28} /> dp2005317@gmail.com
+        <PlayfulButton variant="primary" className="text-base sm:text-xl md:text-2xl px-6 sm:px-12 py-4 sm:py-6 mb-20 shadow-[8px_8px_0px_#0f172a] hover:shadow-[12px_12px_0px_#0f172a]">
+          <Mail className="w-5 h-5 sm:w-7 sm:h-7" /> dp2005317@gmail.com
         </PlayfulButton>
         
         <div className="flex flex-wrap justify-center gap-6">
