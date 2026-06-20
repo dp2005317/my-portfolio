@@ -929,95 +929,6 @@ const Skills = () => {
   );
 };
 
-// --- ACETERNITY UI SCROLL ANIMATION COMPONENTS ---
-
-const Header = ({ translate, titleComponent }) => {
-  return (
-    <motion.div
-      style={{ translateY: translate }}
-      className="max-w-5xl mx-auto text-center"
-    >
-      {titleComponent}
-    </motion.div>
-  );
-};
-
-const Card = ({ rotate, scale, children }) => {
-  return (
-    <motion.div
-      style={{
-        rotateX: rotate,
-        scale,
-        boxShadow: "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
-      }}
-      className="max-w-5xl -mt-6 md:-mt-12 mx-auto h-[25rem] sm:h-[30rem] md:h-[40rem] w-full border-4 border-[var(--border-color)] p-2 md:p-6 bg-[var(--card-bg)] backdrop-blur-xl rounded-[20px] md:rounded-[30px] shadow-2xl transition-colors duration-500"
-    >
-      <div className="h-full w-full overflow-hidden rounded-xl md:rounded-2xl bg-zinc-900">
-        {children}
-      </div>
-    </motion.div>
-  );
-};
-
-const ContainerScroll = ({ titleComponent, children }) => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-  });
-  const isMobile = useIsMobile();
-
-  const scaleDimensions = () => {
-    return isMobile ? [0.8, 1] : [1.05, 1];
-  };
-
-  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
-
-  return (
-    <div
-      className="h-[40rem] sm:h-[50rem] md:h-[80rem] flex items-center justify-center relative p-4 md:p-20"
-      ref={containerRef}
-    >
-      <div
-        className="py-10 md:py-40 w-full relative"
-        style={{ perspective: "1000px" }}
-      >
-        <Header translate={translate} titleComponent={titleComponent} />
-        <Card rotate={rotate} translate={translate} scale={scale}>
-          {children}
-        </Card>
-      </div>
-    </div>
-  );
-};
-
-const FeaturedShowcase = () => {
-  return (
-    <section className="relative w-full overflow-hidden -mt-10 md:-mt-20">
-      <ContainerScroll
-        titleComponent={
-          <>
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-[var(--text-primary)] transition-colors duration-500 mb-2 md:mb-0">
-              Unleash the power of <br className="hidden md:block" />
-              <span className="text-4xl sm:text-5xl md:text-[6rem] font-bold mt-2 leading-none text-[var(--accent)] display-font">
-                Scroll Animations
-              </span>
-            </h1>
-          </>
-        }
-      >
-        <img
-          src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=2688&auto=format&fit=crop"
-          alt="DrawArc Featured Project"
-          className="mx-auto rounded-xl md:rounded-2xl object-cover h-full w-full object-left-top"
-          draggable={false}
-        />
-      </ContainerScroll>
-    </section>
-  );
-};
-
 const Projects = () => {
   const isMobile = useIsMobile();
 
@@ -1288,7 +1199,6 @@ export default function App() {
               <Hero theme={theme} />
               <About />
               <Skills />
-              <FeaturedShowcase />
               <Projects />
               <Experience />
               <Contact />
