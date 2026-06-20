@@ -26,14 +26,14 @@ const GlobalStyles = () => (
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800;900&family=Outfit:wght@400;500;600;700;800&family=Kalam:wght@400;700&display=swap');
 
     :root {
-      --primary: #2457FF; /* Electric Blue */
-      --accent: #FFD500;  /* Bright Yellow */
-      --pink: #FF90E8;    /* Hot Pink */
-      --green: #23A094;   /* Mint Green */
-      --orange: #FF5C00;  /* Bright Orange */
-      --dark: #0F172A;    /* Slate Black */
-      --light: #FFFFFF;   /* White */
-      --bg: #F8FAFC;      /* Off-white background */
+      --primary: #7C3AED; /* Violet */
+      --accent: #FDE047;  /* Yellow */
+      --pink: #F472B6;    /* Pink */
+      --green: #4ADE80;   /* Green */
+      --orange: #FB923C;  /* Orange */
+      --dark: #0F172A;    /* Slate 900 */
+      --light: #F8FAFC;   /* Slate 50 */
+      --gray: #E2E8F0;    /* Slate 200 */
     }
 
     * {
@@ -141,27 +141,57 @@ const WindowDots = () => (
 
 // --- SECTIONS ---
 
-const Navbar = () => (
-  <nav className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 pointer-events-none">
-    <div className="max-w-7xl mx-auto flex justify-between items-center">
-      <div className="pointer-events-auto bg-[var(--accent)] neo-border rounded-xl px-5 py-2 shadow-[4px_4px_0px_#0f172a] rotate-1 hover:rotate-0 transition-transform cursor-pointer">
-        <span className="font-display font-black text-2xl tracking-tight">DIGANTA.</span>
-      </div>
-      <div className="pointer-events-auto hidden md:flex items-center gap-2 bg-[var(--light)] neo-border rounded-full p-1 shadow-[4px_4px_0px_#0f172a]">
-        {['About', 'Work', 'Journey'].map((item) => (
-          <a key={item} href={`#${item.toLowerCase()}`} className="px-6 py-2 font-bold hover:bg-slate-100 transition-colors rounded-full uppercase text-sm">
-            {item}
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 pointer-events-none">
+      <div className="max-w-7xl mx-auto flex justify-between items-center relative">
+        <div className="pointer-events-auto bg-[var(--accent)] neo-border rounded-xl px-5 py-2 shadow-[4px_4px_0px_#0f172a] rotate-1 hover:rotate-0 transition-transform cursor-pointer">
+          <span className="font-display font-black text-2xl tracking-tight text-[var(--dark)]">DIGANTA.</span>
+        </div>
+        
+        {/* Desktop Links */}
+        <div className="pointer-events-auto hidden md:flex items-center gap-2 bg-[var(--light)] neo-border rounded-full p-1 shadow-[4px_4px_0px_#0f172a]">
+          {['About', 'Work', 'Journey'].map((item) => (
+            <a key={item} href={`#${item.toLowerCase()}`} className="px-6 py-2 font-bold hover:bg-slate-200 transition-colors rounded-full uppercase text-sm text-[var(--dark)]">
+              {item}
+            </a>
+          ))}
+        </div>
+
+        {/* Mobile Toggle & Talk Button */}
+        <div className="pointer-events-auto flex items-center gap-2">
+          <button 
+            className="md:hidden bg-[var(--light)] text-[var(--dark)] neo-border rounded-full px-4 py-3 font-bold shadow-[4px_4px_0px_#0f172a]"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? 'CLOSE' : 'MENU'}
+          </button>
+          <a href="#contact" className="hidden sm:inline-flex bg-[var(--dark)] text-[var(--accent)] neo-border rounded-full px-6 py-3 font-bold hover:bg-[var(--primary)] hover:text-[var(--light)] transition-colors uppercase shadow-[4px_4px_0px_#0f172a] items-center gap-2">
+            Let's Talk <Zap size={16} className="fill-[var(--accent)] text-[var(--accent)]" />
           </a>
-        ))}
+        </div>
       </div>
-      <div className="pointer-events-auto">
-        <a href="#contact" className="bg-[var(--dark)] text-white neo-border rounded-full px-6 py-3 font-bold hover:bg-[var(--primary)] hover:text-white transition-colors uppercase shadow-[4px_4px_0px_#0f172a] inline-flex items-center gap-2">
-          Let's Talk <Zap size={16} className="fill-[var(--accent)] text-[var(--accent)]" />
-        </a>
-      </div>
-    </div>
-  </nav>
-);
+
+      {/* Mobile Menu Dropdown */}
+      {isOpen && (
+        <div className="pointer-events-auto md:hidden mt-4 bg-[var(--light)] neo-border rounded-xl p-4 shadow-[4px_4px_0px_#0f172a] flex flex-col gap-2 max-w-7xl mx-auto">
+          {['About', 'Work', 'Journey', 'Contact'].map((item) => (
+            <a 
+              key={item} 
+              href={`#${item.toLowerCase()}`} 
+              onClick={() => setIsOpen(false)}
+              className="px-6 py-3 font-bold text-[var(--dark)] hover:bg-slate-200 transition-colors rounded-lg uppercase text-lg text-center"
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+      )}
+    </nav>
+  );
+};
 
 const Hero = () => {
   return (
@@ -243,25 +273,25 @@ const Hero = () => {
             </div>
 
             {/* Floating Stickers using Framer Motion */}
-            <motion.div className="absolute top-10 -right-4 md:-right-8 z-20" animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }}>
+            <motion.div className="absolute top-10 right-2 lg:-right-4 z-20" animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }}>
               <Sticker rotate="rotate-6" color="bg-[var(--accent)]">
                 <Star size={16} className="fill-[var(--dark)]" /> FOUNDER OF HONEST.
               </Sticker>
             </motion.div>
             
-            <motion.div className="absolute top-1/3 -left-4 md:-left-12 z-20" animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity, delay: 1 }}>
+            <motion.div className="absolute top-1/3 left-2 lg:-left-8 z-20" animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity, delay: 1 }}>
               <Sticker rotate="-rotate-12" color="bg-[var(--pink)]">
                 AI BUILDER 🤖
               </Sticker>
             </motion.div>
             
-            <motion.div className="absolute bottom-24 -right-4 md:-right-12 z-20" animate={{ y: [-8, 8, -8] }} transition={{ duration: 3.5, repeat: Infinity, delay: 0.5 }}>
+            <motion.div className="absolute bottom-24 right-2 lg:-right-6 z-20" animate={{ y: [-8, 8, -8] }} transition={{ duration: 3.5, repeat: Infinity, delay: 0.5 }}>
               <Sticker rotate="rotate-3" color="bg-[var(--green)] text-white">
                 <Rocket size={16} className="fill-white" /> BUILD. LEARN. SHIP.
               </Sticker>
             </motion.div>
             
-            <motion.div className="absolute bottom-8 left-4 z-20" animate={{ y: [5, -5, 5] }} transition={{ duration: 4.5, repeat: Infinity, delay: 2 }}>
+            <motion.div className="absolute bottom-8 left-6 lg:-left-2 z-20" animate={{ y: [5, -5, 5] }} transition={{ duration: 4.5, repeat: Infinity, delay: 2 }}>
               <Sticker rotate="-rotate-6" color="bg-[var(--light)]">
                 <span className="font-handwriting text-xl text-[var(--primary)]">2024 - 2028</span>
               </Sticker>
@@ -460,10 +490,10 @@ const CheckIcon = () => (
 
 const Projects = () => {
   const projects = [
-    { id: "01", title: "HONEST.", desc: "Premium landing page for a creative agency.", tech: "Next.js, Tailwind", img: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=1200&auto=format&fit=crop", color: "bg-[var(--primary)]" },
-    { id: "02", title: "R.J ENTERPRISE", desc: "Corporate security solutions website.", tech: "React, TypeScript", img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1200&auto=format&fit=crop", color: "bg-[var(--orange)]" },
-    { id: "03", title: "LAKSHYAVEDH", desc: "High-energy modern gymnasium site.", tech: "Three.js, GSAP", img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop", color: "bg-[var(--green)]" },
-    { id: "04", title: "CAFEBUCKS", desc: "Elegant e-commerce for premium roastery.", tech: "Framer Motion", img: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1200&auto=format&fit=crop", color: "bg-[var(--pink)]" },
+    { id: "01", title: "HONEST.", desc: "Premium landing page for a creative agency.", tech: "Next.js, Tailwind", img: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=1200&auto=format&fit=crop", color: "bg-[var(--primary)]", link: "https://github.com/dp2005317" },
+    { id: "02", title: "R.J ENTERPRISE", desc: "Corporate security solutions website.", tech: "React, TypeScript", img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1200&auto=format&fit=crop", color: "bg-[var(--orange)]", link: "https://github.com/dp2005317" },
+    { id: "03", title: "LAKSHYAVEDH", desc: "High-energy modern gymnasium site.", tech: "Three.js, GSAP", img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop", color: "bg-[var(--green)]", link: "https://github.com/dp2005317" },
+    { id: "04", title: "CAFEBUCKS", desc: "Elegant e-commerce for premium roastery.", tech: "Framer Motion", img: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1200&auto=format&fit=crop", color: "bg-[var(--pink)]", link: "https://github.com/dp2005317" },
   ];
 
   return (
@@ -495,9 +525,11 @@ const Projects = () => {
                   <span className="font-bold text-[var(--dark)]">{project.tech}</span>
                 </div>
                 
-                <PlayfulButton variant="dark" className="px-6 py-3 text-sm mt-auto">
-                  View Live Site <ExternalLink size={18} />
-                </PlayfulButton>
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  <PlayfulButton variant="dark" className="px-6 py-3 text-sm mt-auto">
+                    View Live Site <ExternalLink size={18} />
+                  </PlayfulButton>
+                </a>
               </div>
 
               {/* Image (Right) */}
